@@ -43,9 +43,9 @@ public class EnemyBoss extends GameObject {
 			if(spawn == 0) handler.addObject(new EnemyBossBullet((int)x+48, (int)y+48, ID.BasicEnemy, handler));
  		}
 		if(this.getX() < Game.WIDTH / 2) {
-			velX -= 000001;
+			velX += 00001;
 		} else {
-			velX += .000001;
+			velX += .00001;
 		}
 		
 		

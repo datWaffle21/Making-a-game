@@ -26,10 +26,10 @@ public class PlayerBullet extends GameObject {
 		x += velX;
 		y += velY;
 		
-		if(y <= 0 || y >= Game.HEIGHT - 32) velY *= -1;
-		if(x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
+		if(y <= 0 || y >= Game.HEIGHT - 32) handler.removeObject(this);
+		if(x <= 0 || x >= Game.WIDTH - 16) handler.removeObject(this);
 	
-		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.06f, handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.white, 10, 10, 0.06f, handler));
 		
 	}
 	

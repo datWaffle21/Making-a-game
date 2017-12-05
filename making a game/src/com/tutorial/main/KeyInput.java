@@ -3,8 +3,6 @@ package com.tutorial.main;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import com.tutorial.main.Game.STATE;
-
 public class KeyInput extends KeyAdapter {
 	
 	public static boolean health = false;
@@ -12,6 +10,7 @@ public class KeyInput extends KeyAdapter {
 	
 	
 	private Handler handler;
+	private Player player;
 	private Game game;
 	private boolean[] keyDown = new boolean[4];
 	
@@ -41,6 +40,12 @@ public class KeyInput extends KeyAdapter {
 				if(key== KeyEvent.VK_H) health = true;
 				if(key== KeyEvent.VK_L) lose = true;
 				
+				if(key == KeyEvent.VK_SPACE) {
+					
+					handler.addObject(new PlayerBullet(Game.WIDTH /2, Game.HEIGHT /2 , ID.PlayerBullet, handler));
+					
+				}
+				
 				
 			}
 			
@@ -65,6 +70,8 @@ public class KeyInput extends KeyAdapter {
 				
 				if(key == KeyEvent.VK_H) health = false;
 				if(key == KeyEvent.VK_L) lose = false;
+				
+				
 				
 				// Vertical movement
 				if(!keyDown[0] && !keyDown[1]) tempObject.setVelY(0);
